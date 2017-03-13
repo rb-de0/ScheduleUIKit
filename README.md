@@ -25,6 +25,18 @@ Helper for implementing UI like TV schedule.
 github "rb-de0/ScheduleUIKit"
 ```
 
+## Usage
+
+TODO
+
+## TODO
+
+- [ ] Cocoapods Support
+- [ ] Infinite Scroll
+- [ ] Paging
+- [ ] Current Time Mark
+- [ ] Docs
+
 ## Author
 
 [rb_de0](https://twitter.com/rb_de0), rebirth.de0@gmail.com
