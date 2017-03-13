@@ -25,13 +25,21 @@ Helper for implementing UI like TV schedule.
 github "rb-de0/ScheduleUIKit"
 ```
 
+### CocoaPods
+
+ScheduleUIKit is available through CocoaPods. To install it, simply add the following line to your Podfile:
+
+```
+pod 'ScheduleUIKit'
+```
+
 ## Usage
 
 TODO
 
 ## TODO
 
-- [ ] Cocoapods Support
+- [x] Cocoapods Support
 - [ ] Fix margin logic
 - [ ] Infinite Scroll
 - [ ] Paging
