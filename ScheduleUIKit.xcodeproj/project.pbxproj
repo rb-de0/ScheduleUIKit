@@ -16,7 +16,7 @@
 		18F602621E765AF70072B9A4 /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602521E765AF70072B9A4 /* ChannelView.swift */; };
 		18F602631E765AF70072B9A4 /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F602531E765AF70072B9A4 /* ChannelView.xib */; };
 		18F602641E765AF70072B9A4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602541E765AF70072B9A4 /* CollectionViewController.swift */; };
-		18F602661E765AF70072B9A4 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602561E765AF70072B9A4 /* Schedule.swift */; };
+		18F602661E765AF70072B9A4 /* Program.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602561E765AF70072B9A4 /* Program.swift */; };
 		18F602671E765AF70072B9A4 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602571E765AF70072B9A4 /* ScheduleCell.swift */; };
 		18F602681E765AF70072B9A4 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F602581E765AF70072B9A4 /* ScheduleView.swift */; };
 		18F602691E765AF70072B9A4 /* ScheduleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18F602591E765AF70072B9A4 /* ScheduleView.xib */; };
@@ -71,7 +71,7 @@
 		18F602531E765AF70072B9A4 /* ChannelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelView.xib; sourceTree = "<group>"; };
 		18F602541E765AF70072B9A4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		18F602551E765AF70072B9A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18F602561E765AF70072B9A4 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		18F602561E765AF70072B9A4 /* Program.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Program.swift; sourceTree = "<group>"; };
 		18F602571E765AF70072B9A4 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		18F602581E765AF70072B9A4 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		18F602591E765AF70072B9A4 /* ScheduleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleView.xib; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		18F6027B1E7673360072B9A4 /* ValueObject */ = {
 			isa = PBXGroup;
 			children = (
-				18F602561E765AF70072B9A4 /* Schedule.swift */,
+				18F602561E765AF70072B9A4 /* Program.swift */,
 				18F6027E1E7673B60072B9A4 /* Channel.swift */,
 			);
 			name = ValueObject;
@@ -352,7 +352,7 @@
 				18F6026B1E765AF70072B9A4 /* SideView.swift in Sources */,
 				18F6026A1E765AF70072B9A4 /* ScrollViewController.swift in Sources */,
 				18F6027F1E7673B60072B9A4 /* Channel.swift in Sources */,
-				18F602661E765AF70072B9A4 /* Schedule.swift in Sources */,
+				18F602661E765AF70072B9A4 /* Program.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
