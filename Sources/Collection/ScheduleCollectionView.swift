@@ -50,12 +50,12 @@ public class ScheduleCollectionView: UICollectionView {
         // The position is adjusted to fix the position of the header and rightBar.
         
         if let headerView = headerView {
-            headerView.frame = CGRect(origin: CGPoint(x: 0, y: contentOffset.y),
+            headerView.frame = CGRect(origin: CGPoint(x: headerView.frame.origin.x, y: contentOffset.y),
                                       size: headerView.frame.size)
         }
         
         if let rightBar = rightBar {
-            rightBar.frame = CGRect(origin: CGPoint(x: contentOffset.x + frame.width - rightBarWidth, y: 0),
+            rightBar.frame = CGRect(origin: CGPoint(x: contentOffset.x + frame.width - rightBarWidth, y: rightBar.frame.origin.y),
                                     size: rightBar.frame.size)
         }
     }
@@ -73,7 +73,8 @@ public class ScheduleCollectionView: UICollectionView {
         self.headerView?.removeFromSuperview()
         
         let headerView = UIView()
-        headerView.frame = CGRect(x: 0, y: 0, width: contentSize.width - layout.margin, height: headerHeight)
+        headerView.clipsToBounds = true
+        headerView.frame = CGRect(x: layout.margin, y: 0, width: contentSize.width - layout.margin * 2, height: headerHeight)
         
         addSubview(headerView)
         
@@ -91,7 +92,8 @@ public class ScheduleCollectionView: UICollectionView {
         self.rightBar?.removeFromSuperview()
         
         let rightBar = UIView()
-        rightBar.frame = CGRect(x: 0, y: 0, width: rightBarWidth, height: contentSize.height - layout.margin)
+        rightBar.clipsToBounds = true
+        rightBar.frame = CGRect(x: 0, y: layout.margin, width: rightBarWidth, height: contentSize.height - layout.margin * 2)
         
         addSubview(rightBar)
         

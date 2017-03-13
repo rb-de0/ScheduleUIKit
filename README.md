@@ -32,6 +32,7 @@ TODO
 ## TODO
 
 - [ ] Cocoapods Support
+- [ ] Fix margin logic
 - [ ] Infinite Scroll
 - [ ] Paging
 - [ ] Current Time Mark

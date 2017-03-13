@@ -55,11 +55,12 @@ public class ScheduleScrollView: UIScrollView {
         // The position is adjusted to fix the position of the header and rightBar.
         
         if let headerView = headerView {
-            headerView.frame = CGRect(origin: CGPoint(x: 0, y: contentOffset.y), size: headerView.frame.size)
+            headerView.frame = CGRect(origin: CGPoint(x: headerView.frame.origin.x, y: contentOffset.y),
+                                      size: headerView.frame.size)
         }
         
         if let rightBar = rightBar {
-            rightBar.frame = CGRect(origin: CGPoint(x: contentOffset.x + frame.width - rightBarWidth, y: 0),
+            rightBar.frame = CGRect(origin: CGPoint(x: contentOffset.x + frame.width - rightBarWidth, y: rightBar.frame.origin.y),
                                     size: rightBar.frame.size)
         }
     }
@@ -79,13 +80,14 @@ public class ScheduleScrollView: UIScrollView {
         subviews.forEach { $0.removeFromSuperview() }
         numberOfSections = dataSource.numberOfSections()
         
-        let contentWidth = itemWidth * CGFloat(numberOfSections) + margin
-        let contentHeight = hourHeight * 24 + margin
+        let contentWidth = itemWidth * CGFloat(numberOfSections)
+        let contentHeight = hourHeight * 24
         
         do {
             
             let headerView = UIView()
-            headerView.frame = CGRect(x: 0, y: 0, width: contentWidth - margin, height: headerHeight)
+            headerView.clipsToBounds = true
+            headerView.frame = CGRect(x: margin, y: 0, width: contentWidth - margin, height: headerHeight)
             
             addSubview(headerView)
             
@@ -101,7 +103,8 @@ public class ScheduleScrollView: UIScrollView {
         do {
             
             let rightBar = UIView()
-            rightBar.frame = CGRect(x: 0, y: 0, width: rightBarWidth, height: contentHeight)
+            rightBar.clipsToBounds = true
+            rightBar.frame = CGRect(x: 0, y: margin, width: rightBarWidth, height: contentHeight - margin)
             
             addSubview(rightBar)
             
@@ -123,20 +126,20 @@ public class ScheduleScrollView: UIScrollView {
                 let indexPath = IndexPath(item: item, section: section)
                 let schedulable = dataSource.scheduleScrollView(self, scheduleForItemAt: indexPath)
                 
-                let topMargin = item == 0 ? margin : margin / 2
-                let leftMargin = section == 0 ? margin : margin / 2
+                let verticalMargin = item == 0 ? margin : margin / 2
+                let horizontalMargin = section == 0 ? margin : margin / 2
                 
-                let y = hourHeight * CGFloat(schedulable.start.percentageOfToday) * 24 + topMargin
-                let x = itemWidth * CGFloat(section) + leftMargin
+                let y = hourHeight * CGFloat(schedulable.start.percentageOfToday) * 24 + verticalMargin
+                let x = itemWidth * CGFloat(section) + horizontalMargin
                 
-                let height = hourHeight * CGFloat(schedulable.end.percentageOfToday - schedulable.start.percentageOfToday) * 24 - topMargin
-                let width = itemWidth - leftMargin
+                let height = hourHeight * CGFloat(schedulable.end.percentageOfToday - schedulable.start.percentageOfToday) * 24 - verticalMargin
+                let width = itemWidth - horizontalMargin
                 
                 let view = dataSource.scheduleScrollView(self, viewForAt: indexPath)
                 let size = CGSize(width: width, height: height)
                 let origin = CGPoint(x: x, y: y)
-                view.frame = CGRect(origin: origin, size: size)
                 
+                view.frame = CGRect(origin: origin, size: size)
                 view.isUserInteractionEnabled = true
                 view.addGestureRecognizer(ScheduleTapGestureRecognizer(target: self, action: #selector(didSelect), indexPath: indexPath))
                 
@@ -144,7 +147,7 @@ public class ScheduleScrollView: UIScrollView {
             }
         }
         
-        contentSize = CGSize(width: contentWidth, height: contentHeight)
+        contentSize = CGSize(width: contentWidth + margin, height: contentHeight + margin)
         contentInset = UIEdgeInsets(top: headerHeight, left: 0, bottom: 0, right: rightBarWidth)
         contentOffset = CGPoint(x: 0, y: -headerHeight)
         
