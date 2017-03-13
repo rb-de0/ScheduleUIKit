@@ -8,7 +8,13 @@
 
 import UIKit
 
+/// ScheduleScrollViewDelegate handles view event. (like UICollectionViewDelegate)
 public protocol ScheduleScrollViewDelegate: class {
     
+    /// Called when the view located at indexPath is tapped.
+    ///
+    /// - Parameters:
+    ///   - scheduleScrollView: ScheduleScrollView
+    ///   - indexPath: IndexPath of tapped view
     func scheduleScrollView(_ scheduleScrollView: ScheduleScrollView, didSelectItemAt indexPath: IndexPath)
 }

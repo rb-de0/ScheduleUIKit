@@ -10,6 +10,7 @@ import Foundation
 
 public extension Date {
     
+    /// It is the ratio of how long it has passed since 0 o'clock.
     var percentageOfToday: Double {
         let currentMinutes = Calendar.current.component(.minute, from: self)
         let minutesSum = Calendar.current.component(.hour, from: self) * 60

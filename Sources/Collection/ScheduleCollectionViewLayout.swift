@@ -8,10 +8,16 @@
 
 import UIKit
 
+/// provides a UI like TV schedule.
 public final class ScheduleCollectionViewLayout: UICollectionViewLayout {
     
+    /// cell width
     public var itemWidth = CGFloat(100)
+    
+    /// height per hour
     public var hourHeight = CGFloat(30)
+    
+    /// margin between cells
     public var margin = CGFloat(1)
     
     private var allAttributes = [[UICollectionViewLayoutAttributes]]()

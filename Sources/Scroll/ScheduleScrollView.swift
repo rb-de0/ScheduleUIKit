@@ -8,12 +8,23 @@
 
 import UIKit
 
+/// ScrollView that provides a UI like TV schedule.
+/// If you want to implement complex Cells, it's better to use ScheduleScrollView.
 public class ScheduleScrollView: UIScrollView {
     
+    /// view width
     public var itemWidth = CGFloat(160)
+    
+    /// height per hour
     public var hourHeight = CGFloat(40)
+    
+    /// margin between views
     public var margin = CGFloat(1)
+    
+    /// height of the header that displays data like channels.
     public var headerHeight = CGFloat(30)
+    
+    /// /// width of the rightBar that displays time information.
     public var rightBarWidth = CGFloat(40)
     
     private weak var headerView: UIView!
@@ -21,12 +32,14 @@ public class ScheduleScrollView: UIScrollView {
     
     private var numberOfSections = 0
     
+    /// dataSource provides data necessary for building TV schedule.
     public weak var dataSource: ScheduleScrollViewDataSource? {
         didSet {
             layoutViews()
         }
     }
     
+    /// scheduleDelegate handles events of View
     public weak var scheduleDelegate: ScheduleScrollViewDelegate?
     
     required public init?(coder aDecoder: NSCoder) {
@@ -38,6 +51,8 @@ public class ScheduleScrollView: UIScrollView {
 
     override public func layoutSubviews() {
         super.layoutSubviews()
+        
+        // The position is adjusted to fix the position of the header and rightBar.
         
         if let headerView = headerView {
             headerView.frame = CGRect(origin: CGPoint(x: 0, y: contentOffset.y), size: headerView.frame.size)

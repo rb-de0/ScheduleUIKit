@@ -8,16 +8,23 @@
 
 import UIKit
 
+/// CollectionView that provides a UI like TV schedule.
+/// If you want to implement complex Cells, it's better to use ScheduleScrollView.
 public class ScheduleCollectionView: UICollectionView {
     
+    /// height of the header that displays data like channels.
     public var headerHeight = CGFloat(30)
+    
+    /// width of the rightBar that displays time information.
     public var rightBarWidth = CGFloat(30)
     
     private weak var headerView: UIView!
     private weak var rightBar: UIView!
     
+    /// scheduleDataSource provides data necessary for building TV schedule.
     public weak var scheduleDataSource: ScheduleCollectionViewDataSource?
     
+    /// provides a UI like TV schedule.
     public var layout: ScheduleCollectionViewLayout {
         return collectionViewLayout as! ScheduleCollectionViewLayout
     }
@@ -39,6 +46,8 @@ public class ScheduleCollectionView: UICollectionView {
     
     override public func layoutSubviews() {
         super.layoutSubviews()
+        
+        // The position is adjusted to fix the position of the header and rightBar.
         
         if let headerView = headerView {
             headerView.frame = CGRect(origin: CGPoint(x: 0, y: contentOffset.y),
