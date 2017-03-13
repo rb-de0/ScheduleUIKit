@@ -13,6 +13,10 @@ Helper for implementing UI like TV schedule.
 - Xcode 8.2.1
 - iOS 9.0 or later
 
+## Image
+
+![](./Image/example.gif)
+
 ## Installation
 
 ### Carthage
